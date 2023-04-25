@@ -10,16 +10,16 @@ export const createChat = async (req, res) => {
 
         //console.log('first',firstUserId)
         //console.log('second',secondUserId)
-        const checkChat = await Chat.find().where('firstUserId').equals(firstUserId).where('secondUserId').equals(secondUserId)
-        const checkChat2 = await Chat.find().where('firstUserId').equals(secondUserId).where('secondUserId').equals(firstUserId)
+        const checkChat = await Chat.findOne().where('firstUserId').equals(firstUserId).where('secondUserId').equals(secondUserId)
+        const checkChat2 = await Chat.findOne().where('firstUserId').equals(secondUserId).where('secondUserId').equals(firstUserId)
         //console.log('check',checkChat,checkChat2)
-        if (checkChat.length!=0 ){
+        if (checkChat){
             //console.log('if !=0',checkChat.length)
 
             res.json(checkChat)
             //return res.json({ message: 'Такой чат уже существует' })
         }
-        else if(checkChat2.length!=0){
+        else if(checkChat2){
             res.json(checkChat2)
         }
 
@@ -73,12 +73,15 @@ export const getChats = async (req, res) => {
             }
         }
         //console.log('users',users)
-        var filtered = userChats.filter(function (el) {
+        var filteredChats = userChats.filter(function (el) {
+            return el != null;
+          });
+          var filteredUsers = users.filter(function (el) {
             return el != null;
           });
         //console.log(userChats)
-        //console.log('messages',filtered.messages)
-        res.json({filtered, users})
+       //console.log('filteredUsers',filteredUsers)
+        res.json({filteredChats, filteredUsers})
     
     } catch (error) {
         res.json({ message: 'Что-то пошло не так.' })

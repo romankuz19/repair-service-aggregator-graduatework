@@ -69,7 +69,7 @@ export const postSlice = createSlice({
         [createPost.rejected]: (state) => {
             state.loading = false
         },
-        // Получаение всех постов
+        // Получение всех постов
         [getAllPosts.pending]: (state) => {
             state.loading = true
         },
