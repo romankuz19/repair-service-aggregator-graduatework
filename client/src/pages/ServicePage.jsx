@@ -9,6 +9,9 @@ import {
     AiTwotoneEdit,
     AiFillDelete,
 } from 'react-icons/ai'
+import "../styles.css";
+import {  HiPhone } from 'react-icons/hi'
+import { BsFillChatDotsFill} from 'react-icons/bs'
 import Moment from 'react-moment'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -34,13 +37,12 @@ export const ServicePage = () => {
     const [allMessages, setAllMessages] = useState([])
     const [currentUser, setCurrentOwner] = useState(null)
     const [cmtUser, setCmtuser] = useState([])
-    //const [ownerUser, setOwnerUser] = useState(null)
     const [btn, setBtn] = useState(false)
     const [isLoaded, setIsloaded] = useState(false)
     const words = [ 'сука' , 'сучка' , 'шлюха' ]
-    //const mat = /(?<=^|[^а-я])(([уyu]|[нзnz3][аa]|(хитро|не)?[вvwb][зz3]?[ыьъi]|[сsc][ьъ']|(и|[рpr][аa4])[зсzs]ъ?|([оo0][тбtb6]|[пp][оo0][дd9])[ьъ']?|(.\B)+?[оаеиeo])?-?([еёe][бb6](?!о[рй])|и[пб][ае][тц]).*?|([нn][иеаaie]|([дпdp]|[вv][еe3][рpr][тt])[оo0]|[рpr][аa][зсzc3]|[з3z]?[аa]|с(ме)?|[оo0]([тt]|дно)?|апч)?-?[хxh][уuy]([яйиеёюuie]|ли(?!ган)).*?|([вvw][зы3z]|(три|два|четыре)жды|(н|[сc][уuy][кk])[аa])?-?[бb6][лl]([яy](?!(х|ш[кн]|мб)[ауеыио]).*?|[еэe][дтdt][ь']?)|([рp][аa][сзc3z]|[знzn][аa]|[соsc]|[вv][ыi]?|[пp]([еe][рpr][еe]|[рrp][оиioеe]|[оo0][дd])|и[зс]ъ?|[аоao][тt])?[пpn][иеёieu][зz3][дd9].*?|([зz3][аa])?[пp][иеieu][дd][аоеaoe]?[рrp](ну.*?|[оаoa][мm]|([аa][сcs])?([иiu]([лl][иiu])?[нщктлtlsn]ь?)?|([оo](ч[еиei])?|[аa][сcs])?[кk]([оo]й)?|[юu][гg])[ауеыauyei]?|[мm][аa][нnh][дd]([ауеыayueiи]([лl]([иi][сзc3щ])?[ауеыauyei])?|[оo][йi]|[аоao][вvwb][оo](ш|sh)[ь']?([e]?[кk][ауеayue])?|юк(ов|[ауи])?)|[мm][уuy][дd6]([яyаиоaiuo0].*?|[еe]?[нhn]([ьюия'uiya]|ей))|мля([тд]ь)?|лять|([нз]а|по)х|м[ао]л[ао]фь([яию]|[её]й))(?=($|[^а-я]))/
-    //const mat = /([хx][уy])(?:[ёieеюийя]|ли[^а-я])|([пp][iие][3зс][дd])|(?:[^а-я]|(вы))([bб][lл][yя])|(?:[^а-я]|[^(колр)])((?:[еeё]|йо)[бb](?:[нn][уy]|[uу][4ч]|[оoаa@][тnкнt]|[лске@eыиаa][наоюи@вл]))|([pп][иeеi][дd][oоаыa@еeиi][рr])|[^а-я]([cсs][yуu][ч4]?[kк][a@аи])/
+    
     const mat = /(?<=^|[^а-я])(([уyu]|[нзnz3][аa]|(хитро|не)?[вvwb][зz3]?[ыьъi]|[сsc][ьъ']|(и|[рpr][аa4])[зсzs]ъ?|([оo0][тбtb6]|[пp][оo0][дd9])[ьъ']?|(.\B)+?[оаеиeo])?-?([еёe][бb6](?!о[рй])|и[пб][ае][тц]).*?|([нn][иеаaie]|([дпdp]|[вv][еe3][рpr][тt])[оo0]|[рpr][аa][зсzc3]|[з3z]?[аa]|с(ме)?|[оo0]([тt]|дно)?|апч)?-?[хxh][уuy]([яйиеёюuie]|ли(?!ган)).*?|([вvw][зы3z]|(три|два|четыре)жды|(н|[сc][уuy][кk])[аa])?-?[бb6][лl]([яy](?!(х|ш[кн]|мб)[ауеыио]).*?|[еэe][дтdt][ь']?)|([рp][аa][сзc3z]|[знzn][аa]|[соsc]|[вv][ыi]?|[пp]([еe][рpr][еe]|[рrp][оиioеe]|[оo0][дd])|и[зс]ъ?|[аоao][тt])?[пpn][иеёieu][зz3][дd9].*?|([зz3][аa])?[пp][иеieu][дd][аоеaoe]?[рrp](ну.*?|[оаoa][мm]|([аa][сcs])?([иiu]([лl][иiu])?[нщктлtlsn]ь?)?|([оo](ч[еиei])?|[аa][сcs])?[кk]([оo]й)?|[юu][гg])[ауеыauyei]?|[мm][аa][нnh][дd]([ауеыayueiи]([лl]([иi][сзc3щ])?[ауеыauyei])?|[оo][йi]|[аоao][вvwb][оo](ш|sh)[ь']?([e]?[кk][ауеayue])?|юк(ов|[ауи])?)|[мm][уuy][дd6]([яyаиоaiuo0].*?|[еe]?[нhn]([ьюия'uiya]|ей))|мля([тд]ь)?|лять|([нз]а|по)х|м[ао]л[ао]фь([яию]|[её]й))(?=($|[^а-я]))/
+<<<<<<< HEAD
     
     const blockurl = /^(https?:\/\/)?([\w-]{1,32}\.[\w-]{1,32}) [^\s@]*$/
 
@@ -50,10 +52,15 @@ export const ServicePage = () => {
     
     // /?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$/
     
+=======
+
+
+    const blockurl2 = /^(http|https|ftp|)\/|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/
+
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     var chatId = ''
     var loading = true
-    //var [chatId, setChatId] = useState('')
-    
+ 
     const { comments } = useSelector((state) => state.comment)
 
     
@@ -61,14 +68,19 @@ export const ServicePage = () => {
     const params = useParams()
     //console.log('comments',comments)
     const dispatch = useDispatch()
-    //var btn = false
+   
 
     const removePostHandler = () => {
         try {
             console.log('params',params)
             dispatch(removePost(params.id))
+<<<<<<< HEAD
             toast('Услуга была удалена')
             //navigate('/')
+=======
+            toast.info('Услуга была удалена')
+            navigate('/')
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             window.location.reload(false);
         } catch (error) {
             console.log(error)
@@ -76,6 +88,7 @@ export const ServicePage = () => {
     }
 
     const fetchComments = useCallback(async () => {
+        console.log('fetchingComments')
         try {
             dispatch(getPostComments(params.id))
         } catch (error) {
@@ -87,7 +100,7 @@ export const ServicePage = () => {
         const { data } = await axios.get(`/posts/${params.id}`)
         setPost(data.post)
         setOwnerUser(data.user)
-        //console.log(data)
+        console.log(data)
     }, [params.id])
 
     useEffect(() => {
@@ -117,32 +130,21 @@ export const ServicePage = () => {
         try {
             setBtn(true)
             console.log('user1',currentUser._id)
+<<<<<<< HEAD
             console.log('user2',ownerUser[0]._id)
+=======
+            console.log('user2',ownerUser._id)
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             
             const { data } = await axios.post(`/chat/create`, {
                 firstUserId: currentUser._id,
-                secondUserId: ownerUser[0]._id,
+                secondUserId: ownerUser._id,
             })
-           // if(!data){
-
-            // const nextURL = 'https://my-website.com/page_b';
-            // const nextTitle = 'My new page title';
-            // const nextState = { additionalInformation: 'Updated the URL with JS' };
-            
-            // // This will create a new entry in the browser's history, without reloading
-            // window.history.pushState(nextState, nextTitle, nextURL);
-            
-            // // This will replace the current entry in the browser's history, without reloading
-            // window.history.replaceState(nextState, nextTitle, nextURL);
-                
-                //console.log(data)
+            navigate('/chats')
+           
                 setChat(data)
                 
-                //console.log(chat)
-                //return data
-            //}
-            //console.log(btn)
-
+              
         } catch (error) {
             console.log(error)
         }
@@ -274,10 +276,15 @@ export const ServicePage = () => {
             
             }
             if(firstCheck && secondCheck && adcheck){
+<<<<<<< HEAD
+=======
+                console.log('cmt',comment)
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 setComment('')
                 dispatch(createComment({ postId, comment, author }))
             }
             else if(!firstCheck || !secondCheck){
+<<<<<<< HEAD
                 alert("Данный контент нельзя вставить!")
                 toast("Данный контент нельзя вставить!")
                     setComment('')
@@ -285,6 +292,15 @@ export const ServicePage = () => {
             else if(!adcheck){
                 alert("Данный контент нельзя вставить!")
                 toast("Данный контент нельзя вставить!")
+=======
+                //alert("Данный контент нельзя вставить!")
+                toast.info("Данный контент нельзя вставить!")
+                    setComment('')
+            }
+            else if(!adcheck){
+                //alert("Данный контент нельзя вставить!")
+                toast.info("Данный контент нельзя вставить!")
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     setComment('')
             }
             
@@ -315,17 +331,18 @@ export const ServicePage = () => {
 
     return (
         <div className='max-w-[1200px] mx-auto py-10'>
-            <button className='bg-blue-600 text-xs text-white rounded-lg py-2 px-4 hover:text-black'>
+            {/* <button className='btn-color hover:bg-blue-800 text-xs font-bold text-white rounded-lg py-2 px-4 shadow-lg shadow-blue-500/50'>
                 <Link className='flex' to={'/'}>
                     Назад
                 </Link>
-            </button>
+            </button> */}
 
-            <div className='flex justify-center mx-auto  py-8'>
-                <div className='py-5 min-w-[550px] mr-5'>
-                    <div className='flex flex-col basis-1/4 flex-grow'>
+            <div className='flex  justify-center mx-auto  py-8'>
+                
+                <div className='py-5 sm:min-w-[550px] md:min-w-[550px] lg:min-w-[700px] mr-5 border-2 shadow-lg rounded-lg p-2 '>
+                    <div className='flex flex-col gap-2 items-center mb-5 '>
                         <div
-                            className='object-cover h-40 w-40 rounded-lg'>
+                            className='object-cover h-42 w-42 rounded-lg border-2 border-gray-600'>
                             {post?.imgUrl && (
                                 <img
                                     src={`http://localhost:3002/${post.imgUrl}`}
@@ -333,58 +350,105 @@ export const ServicePage = () => {
                                     className='object-cover h-40 w-40 rounded-lg'
                                 />
                             )}
+                            
                         </div>
-                    </div>
+                        <div className='text-m font-bold opacity-100'>
+                            {ownerUser.firstname} {ownerUser.secondname}
+                                </div>
+                                <div className='text-s'>Обо мне: {post.title}</div>
 
-                    
-                <div className='flex justify-between items-center '>
-                    <div className='text-2xl text-blue-600 font-bold opacity-100'>
-                        {ownerUser[0].firstname} {ownerUser[0].secondname} 
-                        
                     </div>
-                    <div className='text-m text-blue-600 font-bold opacity-100'>
-                       Телефон: {ownerUser[0].phonenumber}
-                    </div>
-                    
-                    <div className='text-xs text-black opacity-80'>
-                        <Moment date={post.createdAt} format='D MMM YYYY' />
-                    </div>
-                </div>
+                    <div className='flex justify-around items-center pb-3'>
+                <div className='text-small-color opacity-90 text-2xl   line-clamp-4'>{post.text}</div>
                 
-                <div className='text-black text-m'>{ownerUser[0].city}</div>
-                <div className='text-black text-m flex justify-between'>{post.title} 
-                {isAuth && (
-                     currentUser._id !== post.author && (
-                    <button onClick={handleCreateChat} className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите исполнителю</button>)
-               
-               )}
-                {/* <button onClick={handleCreateChat} className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите исполнителю</button>
-                 */}
-                 {!isAuth && (
-                 <button onClick={toLogin} className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите исполнителю</button>
-               )}
-                </div>
-                
-                <div className='flex justify-between items-center '>
-                <div className='text-blue-500 opacity-90 text-xl  line-clamp-4'>{post.text}</div>
-
-                <div className='text-blue-500 opacity-90 text-xl  line-clamp-4'>{post.price} ₽</div>
+                <div className='text-small-color  opacity-90 text-2xl  line-clamp-4'>{post.price} ₽</div>
                      
                 </div>
-                <div className='text-blue-500 opacity-90 text-m  '>Категория: {post.category}</div>
+                <div className='flex justify-around'>
+                <div className='flex gap-5 text-black text-m pb-2 pt-3 '>
+                        <div className=' flex flex-wrap justify-center content-center text-m text-white font-bold min-w-[150px] rounded-lg btn-color hover:bg-blue-800 p-1 cursor-pointer'
+                >
+                   <HiPhone className='my-1 mr-1'/>
+                {ownerUser.phonenumber}
+              </div>
+              { 
+                isAuth && (currentUser?._id !== ownerUser?._id) ? (<div className='flex text-m font-bold text-white rounded-lg btn-color p-1 cursor-pointer hover:bg-blue-800'
+                onClick={handleCreateChat}>
+                <BsFillChatDotsFill className='my-1 mr-1' />
+                  Чат
+                </div>) 
+                : !isAuth ? (<div className=' flex text-m font-bold text-white rounded-lg btn-color p-1 cursor-pointer hover:bg-blue-800'
+                onClick={()=> {navigate('/login');toast.info('Сперва войдите в аккаунт')}}>
+                <BsFillChatDotsFill className='my-1 mr-1' />
+                  Чат
+                </div>)
+                : isAuth && (currentUser._id === ownerUser._id) ? (<div></div>):(<div></div>)}
+     
+               </div>
+
+
+               {((currentUser?._id === post.author) || (currentUser?.admin===true)) ?  (
+
+<div className='flex flex-col gap-2 items-center mt-2 '>
+         <div className='flex gap-3'>
+             <div className='flex items-center justify-center gap-1 text-xs text-black opacity-80'>
+                 <AiFillEye /> <span>{post.views}</span>
+             </div>
+             <div className='flex items-center justify-center gap-1 text-xs text-black opacity-80'>
+                 <AiOutlineMessage />{' '}
+                 <span>{post.comments?.length || 0} </span>
+             </div>
+         </div>
+
+         <div className='flex gap-3'>
+                 <button className='flex items-center justify-center gap-2 text-black opacity-80'>
+                     <Link to={`/service/${params.id}/edit`}>
+                         <AiTwotoneEdit />
+                     </Link>
+                 </button>
+                 <button
+                     onClick={removePostHandler}
+                     className='flex items-center justify-center gap-2  text-black opacity-80'
+                 >
+                     <AiFillDelete />
+                 </button>
+             </div>
+
+         
+             
+        
+        
+     </div>
+     ):
+     <div className='flex gap-5 ml-5'>
+             <div className='flex items-center justify-center gap-1 text-xs text-black opacity-80'>
+                 <AiFillEye /> <span>{post.views}</span>
+             </div>
+             <div className='flex items-center justify-center gap-1 text-xs text-black opacity-80'>
+                 <AiOutlineMessage />{' '}
+                 <span>{post.comments?.length || 0} </span>
+             </div>
+         </div>
+     }
+
+
+
+                </div>
+                    <div className='flex justify-around gap-4 '>
+                
+                
+                <div className='left-card flex flex-col gap-2 justify-center'>
+
+            
+                </div>
+
+                <div className='rightcard flex flex-col gap-2 justify-center'>
+                
                 
 
-                    <div className='flex gap-3 items-center mt-2 justify-between'>
-                        <div className='flex gap-3'>
-                            <button className='flex items-center justify-center gap-2 text-xs text-black opacity-80'>
-                                <AiFillEye /> <span>{post.views}</span>
-                            </button>
-                            <button className='flex items-center justify-center gap-2 text-xs text-black opacity-80'>
-                                <AiOutlineMessage />{' '}
-                                <span>{post.comments?.length || 0} </span>
-                            </button>
-                        </div>
+               
 
+<<<<<<< HEAD
                         {((currentUser?._id === post.author) || (currentUser?.admin===true)) &&  (
                             <div className='flex gap-3'>
                                 <button className='flex items-center justify-center gap-2 text-black opacity-80'>
@@ -416,12 +480,25 @@ export const ServicePage = () => {
                             </div>
                         )} */}
                     </div>
+=======
+    
+                </div>
+                
+            </div>
+                    
+
+                    
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 </div>
 
 
                 {chat && (
                             <div className='w-1/3 ml-5'>
+<<<<<<< HEAD
                             <div className='max-h-[400px] text-white overflow-auto p-2 bg-blue-700 flex flex-col gap-2 rounded-lg'>
+=======
+                            <div className='max-h-[400px] text-white overflow-auto p-2 bg-blue-700 flex flex-col gap-2 rounded-lg '>
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                                 {allMessages?.length!==0?
                                 allMessages?.map((msg) => (
                              <MessageItem key={msg._id} msg={msg} />
@@ -456,7 +533,8 @@ export const ServicePage = () => {
                 
                
             </div>
-             <div className='w-1/3 mx-auto max-h-[400px] overflow-auto p-8 bg-blue-700 flex flex-col gap-2 rounded-lg'>
+            <div className='text-center font-bold'>Отзывы</div>
+             <div className='w-1/3 mx-auto max-h-[400px] overflow-auto p-8  flex flex-col gap-2 border-2 shadow-2xl rounded-lg p-2 '>
                 {isAuth && !(currentUser?._id === post.author) && ( 
                 <form
                         className='flex gap-2'
@@ -467,7 +545,7 @@ export const ServicePage = () => {
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                             placeholder='Оставьте отзыв'
-                            className='text-black w-full rounded-lg bg-blue-400 border p-2 text-xs outline-none placeholder:text-white'
+                            className='text-white w-full rounded-lg bg-blue-400 border p-2 text-xs outline-none placeholder:text-white'
                         />
                         <button
                             type='submit'
@@ -498,7 +576,7 @@ export const ServicePage = () => {
                     
                     
                     
-                    <div className="text-white text-s">Отзывы на услугу</div>
+                    
                     {comments.length!==0 && isAuth && (
                     comments?.map((cmt, idx) => (
                         <CommentItem key={idx} cmt={cmt} currentUser={currentUser} />

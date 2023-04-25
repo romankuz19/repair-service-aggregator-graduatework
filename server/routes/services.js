@@ -7,8 +7,10 @@ import {
     removePost,
     updatePost,
     getPostComments,
-    sortedPosts
-} from '../controllers/posts.js'
+    sortedServices,
+    sortedServicesCat
+    
+} from '../controllers/services.js'
 import { checkAuth } from '../utils/checkAuth.js'
 const router = new Router()
 
@@ -21,8 +23,13 @@ router.post('/', checkAuth, createPost)
 router.get('/', getAll)
 
 // Get sorted Posts
+// http://localhost:3002/api/posts/sorted/cat/:name
+router.get('/sorted/cat/:name', sortedServicesCat)
+
+
+// Get sorted Posts
 // http://localhost:3002/api/posts/sorted/:name
-router.get('/sorted/:name', sortedPosts)
+router.get('/sorted/:name', sortedServices)
 
 // Get Post By Id
 // http://localhost:3002/api/posts/:id

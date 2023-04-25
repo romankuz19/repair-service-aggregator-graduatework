@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState,useCallback } from 'react'
-import { PostItem } from '../components/PostItem'
+
 import axios from '../utils/axios'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { checkIsAuth, logout } from '../redux/features/auth/authSlice'
@@ -51,7 +51,7 @@ export const MyProfilePage = () => {
         setUser(data.user)
     })
     useEffect(() => {
-        if (status) toast(status)
+        if (status) toast.info(status)
         fetchUser()
     },[status])
     
@@ -109,9 +109,15 @@ export const MyProfilePage = () => {
 
                     <li>
                         <NavLink
+<<<<<<< HEAD
                             to={'/myservices'}
                             href='/'
                             className='text-l font-bold text-black-400  hover:text-white rounded-lg bg-pink-200 px-4 py-2'
+=======
+                            to={'/my-services'}
+                            href='/'
+                            className='text-l font-bold text-black-400  hover:text-white rounded-lg btn-color text-white hover:bg-blue-800  px-4 py-2'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             style={({ isActive }) => isActive ? activeStyles : undefined}
                         >
                             Мои услуги
@@ -119,9 +125,25 @@ export const MyProfilePage = () => {
                     </li>
                     <li>
                         <NavLink
+<<<<<<< HEAD
                             to={'/createservice'}
                             href='/'
                             className='text-l font-bold text-black-400 hover:text-white rounded-lg bg-pink-200 px-4 py-2'
+=======
+                            to={'/my-tasks'}
+                            href='/'
+                            className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2'
+                            style={({ isActive }) => isActive ? activeStyles : undefined}
+                        >
+                             Мои задания
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to={'/create-service'}
+                            href='/'
+                            className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             style={({ isActive }) => isActive ? activeStyles : undefined}
                         >
                             Добавить услугу
@@ -129,14 +151,21 @@ export const MyProfilePage = () => {
                     </li>
                     <li>
                         <NavLink
+<<<<<<< HEAD
                             to={'/createtask'}
                             href='/'
                             className='text-l font-bold text-black-400 hover:text-white rounded-lg bg-pink-200 px-4 py-2'
+=======
+                            to={'/create-task'}
+                            href='/'
+                            className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             style={({ isActive }) => isActive ? activeStyles : undefined}
                         >
                             Создать задание
                         </NavLink>
                     </li>
+<<<<<<< HEAD
                     <li>
                         <NavLink
                             to={'/mytasks'}
@@ -148,16 +177,24 @@ export const MyProfilePage = () => {
                         </NavLink>
                     </li>
                     <li>
+=======
+                    
+                    {/* <li>
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                         <NavLink
                             to={'#'}
                             href='/'
                             onClick={getChats}
+<<<<<<< HEAD
                             className='text-l font-bold text-black-400 hover:text-white rounded-lg bg-pink-200 px-4 py-2 hover:text-black'
+=======
+                            className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2 hover:text-black'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             
                         >
                             Мои чаты
                         </NavLink>
-                    </li>
+                    </li> */}
                 </ul>
                 <form
             onSubmit={(e) => e.preventDefault()}
@@ -172,7 +209,7 @@ export const MyProfilePage = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder='Логин'
-                    className='read-only:bg-gray-100 mt-1 text-black w-full rounded-lg bg-pink-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='read-only:bg-gray-100 mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
                 />
             </label>
 
@@ -183,7 +220,7 @@ export const MyProfilePage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder='Пароль'
-                    className='read-only:bg-gray-100 mt-1 text-black w-full rounded-lg bg-pink-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='read-only:bg-gray-100 mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
                 />
             </label> */}
             <label className='text-xs text-gray-600'>
@@ -193,7 +230,7 @@ export const MyProfilePage = () => {
                     value={firstname}
                     onChange={(e) => setName(e.target.value)}
                     placeholder='Имя'
-                    className='mt-1 text-black w-full rounded-lg bg-pink-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
                 />
             </label>
             <label className='text-xs text-gray-600'>
@@ -203,7 +240,7 @@ export const MyProfilePage = () => {
                     value={secondname}
                     onChange={(e) => setSecondName(e.target.value)}
                     placeholder='Фамилия'
-                    className='mt-1 text-black w-full rounded-lg bg-pink-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
                 />
             </label>
             <label className='text-xs text-gray-600'>
@@ -213,7 +250,7 @@ export const MyProfilePage = () => {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     placeholder='Город'
-                    className='mt-1 text-black w-full rounded-lg bg-pink-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
                 />
             </label>
             <label className='text-xs text-gray-600'>
@@ -223,7 +260,7 @@ export const MyProfilePage = () => {
                     value={phonenumber}
                     onChange={(e) => setPhonenumber(e.target.value)}
                     placeholder='Номер телефона'
-                    className='mt-1 text-black w-full rounded-lg bg-pink-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
+                    className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xs outline-none placeholder:text-gray-700'
                 />
             </label>
 
@@ -231,14 +268,22 @@ export const MyProfilePage = () => {
                 <button
                     type='submit'
                     onClick={handleSubmit}
+<<<<<<< HEAD
                     className='flex justify-center items-center bg-blue-600 text-l text-white rounded-lg py-2 px-4 hover:text-black'
+=======
+                    className='flex justify-center items-center btn-color text-l text-white rounded-lg py-2 px-4 hover:bg-blue-800 font-bold'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 >
                     Изменить
                 </button>
                 <button
                     type='submit'
                     onClick={fetchUser}
+<<<<<<< HEAD
                     className='flex justify-center items-center bg-red-500 text-l text-white rounded-lg py-2 px-4 hover:text-black'
+=======
+                    className='flex justify-center items-center bg-red-500 text-l text-white rounded-lg py-2 px-4 hover:text-black font-bold'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 >
                     Отменить
                 </button>

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import Service from '../models/Service.js'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 import Task from '../models/Task.js'
 import User from '../models/User.js'
 
@@ -61,6 +65,29 @@ export const getById = async (req, res) => {
     }
 }
 
+<<<<<<< HEAD
+=======
+export const getMyTasks = async (req, res) => {
+    try {
+
+        const user = await User.findById(req.userId)
+        //console.log('user',user)
+        const list = await Promise.all(
+            user.tasks.map((task) => {
+                return Task.findById(task._id)
+            }),
+        )
+
+
+
+        //console.log(list,user)
+        res.json({list,user})
+    } catch (error) {
+        res.json({ message: 'Что-то пошло не так.' })
+    }
+}
+
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 // Remove post
 export const removeTask = async (req, res) => {
     try {

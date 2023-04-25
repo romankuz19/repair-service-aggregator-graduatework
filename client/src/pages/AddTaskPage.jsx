@@ -31,7 +31,11 @@ export const AddTaskPage = () => {
             data.append('category', cat)
             data.append('price', price)
             dispatch(createTask(data))
+<<<<<<< HEAD
             navigate('/tasks')
+=======
+            navigate('/my-tasks')
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             window.location.reload(false);
         } catch (error) {
             console.log(error)
@@ -94,7 +98,11 @@ export const AddTaskPage = () => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder='Название задания'
+<<<<<<< HEAD
                         className='mt-1 text-black w-full rounded-lg bg-blue-400 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+=======
+                        className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 </label>
 
                 <label className='text-xl text-black opacity-90'>
@@ -104,7 +112,11 @@ export const AddTaskPage = () => {
                         onChange={(e) => setDate(e.target.value)}
                         value={date}
                         placeholder='Срок выполнения'
+<<<<<<< HEAD
                         className='mt-1 text-black w-full rounded-lg bg-blue-400 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+=======
+                        className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 </label>
 
                 <label className='text-xl text-black opacity-90'>
@@ -114,7 +126,11 @@ export const AddTaskPage = () => {
                         onChange={(e) => setAddress(e.target.value)}
                         value={address}
                         placeholder='Адрес'
+<<<<<<< HEAD
                         className='mt-1 text-black w-full rounded-lg bg-blue-400 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+=======
+                        className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 </label>
 
                 <label className='text-xl text-black opacity-90'>
@@ -124,14 +140,22 @@ export const AddTaskPage = () => {
                         onChange={(e) => setPrice(e.target.value)}
                         value={price}
                         placeholder='1000, 5000, 10000'
+<<<<<<< HEAD
                         className='mt-1 text-black w-full rounded-lg bg-blue-400 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+=======
+                        className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xl outline-none placeholder:text-gray-700' />
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 </label>
                 <label className='text-xl text-black opacity-90'>
                     Категория      
                 </label>
                 <input list="categories" id="catlist" 
                         onChange={(e) => setCat(e.target.value)} 
+<<<<<<< HEAD
                         name="category" className='mt-1 text-black w-full rounded-lg bg-blue-400 border py-1 px-2 text-xl outline-none placeholder:text-gray-700 '>
+=======
+                        name="category" className='mt-1 text-black w-full rounded-lg bg-blue-100 border py-1 px-2 text-xl outline-none placeholder:text-gray-700 '>
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                         </input>
                         <datalist id="categories">
                             <Options options={categoriesList} />
@@ -142,14 +166,22 @@ export const AddTaskPage = () => {
                 <div className='flex gap-8 items-center justify-center mt-4'>
                     <button
                         onClick={submitHandler}
+<<<<<<< HEAD
                         className='flex justify-center items-center bg-blue-600 text-m text-white rounded-lg py-2 px-4 hover:text-black'
+=======
+                        className='flex justify-center font-bold items-center btn-color text-m text-white rounded-lg py-2 px-4 hover:bg-blue-800'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     >
                         Добавить
                     </button>
 
                     <button
                         onClick={clearFormHandler}
+<<<<<<< HEAD
                         className='flex justify-center items-center bg-red-500 text-m text-white rounded-lg py-2 px-4 hover:text-black'
+=======
+                        className='flex justify-center font-bold items-center bg-red-500 text-m text-white rounded-lg py-2 px-4 hover:text-black'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     >
                         Отменить
                     </button>

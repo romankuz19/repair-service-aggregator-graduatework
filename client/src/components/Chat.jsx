@@ -9,7 +9,11 @@ import { useState,useCallback } from 'react'
 import axios from '../utils/axios'
 import { MessageItem } from '../components/MessageItem.jsx'
 import { ChatItem } from './СhatItem'
+<<<<<<< HEAD
 //import {io} from 'socket.io-client'
+=======
+import {io} from 'socket.io-client'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 import { current } from '@reduxjs/toolkit'
 
 import { createChat, getChatMessages, createMessage } from '../redux/features/chat/chatSlice'
@@ -33,6 +37,7 @@ export const Chat = ({ chat, curuser, chatUsers }) => {
     //console.log('messages',messages)
     // console.log('chatUsers',chatUsers)
 
+<<<<<<< HEAD
     // useEffect(()=>{
     //     socket.current = io('http://localhost:8800');
     //     socket.current.emit("new-user-add",curuser._id)
@@ -59,6 +64,34 @@ export const Chat = ({ chat, curuser, chatUsers }) => {
     //             setReceiveMessage(message)
     //         })
     //  }, )
+=======
+    useEffect(()=>{
+        socket.current = io('http://localhost:8800');
+        socket.current.emit("new-user-add",curuser._id)
+        socket.current.on('get-users', (users)=>{
+            //console.log('users',users)
+            
+            setOnlineUsers(users);
+            //console.log('onlineUsers',onlineUsers)
+        })
+
+    }, [curuser])
+
+    useEffect(()=>{
+       if(sendMessage!==null){
+        socket.current.emit('send-message', sendMessage)
+       }
+
+    }, )
+
+    useEffect(()=>{
+        console.log('receiveMessage',receiveMessage)
+            socket.current.on('receive-message', (message)=>{
+                console.log('dadadsadsd')
+                setReceiveMessage(message)
+            })
+     }, )
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     
 
     var first, second =''

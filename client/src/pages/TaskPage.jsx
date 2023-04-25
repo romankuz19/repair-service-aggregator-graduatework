@@ -9,6 +9,11 @@ import {
     AiTwotoneEdit,
     AiFillDelete,
 } from 'react-icons/ai'
+<<<<<<< HEAD
+=======
+import {  HiPhone } from 'react-icons/hi'
+import { BsFillChatDotsFill} from 'react-icons/bs'
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 import Moment from 'react-moment'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -28,6 +33,10 @@ export const TaskPage = () => {
     const [task, setTask] = useState(null)
     const [ownerTaskUser, setownerTaskUser] = useState(null)
     const [chat, setChat] = useState(null)
+<<<<<<< HEAD
+=======
+    const [phone, setPhone] = useState('Телефон')
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
     const [comment, setComment] = useState('')
     const [message, setMessage] = useState('')
@@ -96,6 +105,10 @@ export const TaskPage = () => {
         firstUserId,
         secondUserId,
     })
+<<<<<<< HEAD
+=======
+    navigate('/chats')
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     //console.log('data',data);
     //dispatch(createChat({firstUserId, secondUserId}));
     setChat(data);
@@ -129,7 +142,11 @@ export const TaskPage = () => {
         try {
             console.log('params',params)
             dispatch(removeTask(params.id))
+<<<<<<< HEAD
             toast('Задание было удалено')
+=======
+            toast.info('Задание было удалено')
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             navigate('/tasks')
             //window.location.reload(false);
         } catch (error) {
@@ -187,6 +204,10 @@ export const TaskPage = () => {
       });
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     
     //console.log('messages',messages)
    //console.log('a',chat)
@@ -244,6 +265,7 @@ export const TaskPage = () => {
 
     return (
         <div className='max-w-[1200px] mx-auto py-10'>
+<<<<<<< HEAD
             <button className='bg-blue-600 text-xs text-white rounded-lg py-2 px-4 hover:text-black'>
                 <Link className='flex' to={'/tasks'}>
                     Назад
@@ -256,10 +278,26 @@ export const TaskPage = () => {
                     <div className='text-m text-blue-600  opacity-100'>
                        Адрес 
                     </div>
+=======
+            {/* <button className='bg-blue-600 text-xs text-white rounded-lg py-2 px-4 hover:text-black'>
+                <Link className='flex' to={'/tasks'}>
+                    Назад
+                </Link>
+            </button> */}
+            <div className='mx-auto max-w-[900px] py-8'>
+            <div className='flex justify-around min-h-[170px] gap-4 border-2 border-2 shadow-lg rounded-lg p-2'>
+                <div className='flex leftcard justify-center flex-col gap-2'>
+                    <div className='text-2xl text-color font-bold opacity-100'>Задача </div>
+                    <div className='text-m   opacity-100'>
+                       Адрес 
+                    </div>
+                   
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     <div className='text-m font-bold'>
                       Заказчик 
                     </div>
 
+<<<<<<< HEAD
                     <div className='text-m text-blue-600  opacity-100'>
                     Категория 
                     </div>
@@ -302,11 +340,75 @@ export const TaskPage = () => {
                  {!isAuth && (
                  <a href='/login' className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите заказчику</a>
                )}
+=======
+                    {/* <div className='text-m text-blue-600  opacity-100'>
+                    Категория 
+                    </div> */}
+            
+                </div>
+                
+                <div className='midcard flex flex-col gap-2 justify-center'>
+
+                <div className='text-2xl text-color font-bold opacity-100'>{task.title}</div>
+                <div className='text-m opacity-100'>{task.address}</div>
+                
+                <div className='text-m font-bold'>{ownerTaskUser.firstname} {ownerTaskUser.secondname}</div>
+                
+                </div>
+
+                <div className='rightcard flex flex-col gap-2 justify-center'>
+                <div className='text-2xl text-color font-bold opacity-100'>Оплата: {task.price} ₽</div>
+                <div className='text-m  opacity-100'>до {task.date}</div>
+                <div className='flex gap-5 text-black text-m '>
+                        <div className='flex flex-wrap justify-center content-center text-m font-bold min-w-[150px] text-white rounded-lg btn-color p-1 hover:bg-blue-800'
+                >
+                   <HiPhone className='my-1 mr-1'/>
+                {ownerTaskUser.phonenumber}
+              </div>
+              { 
+                isAuth && (currentUser._id !== ownerTaskUser._id) ? (<div className='flex text-m font-bold text-white rounded-lg btn-color p-1 cursor-pointer hover:bg-blue-800 '
+                onClick={handleCreateChat}>
+                <BsFillChatDotsFill className='my-1 mr-1' />
+                  Чат
+                </div>) 
+                : !isAuth ? (<div className='flex text-m font-bold rounded-lg btn-color p-1 text-white cursor-pointer hover:bg-blue-800 '
+                onClick={()=> {navigate('/login');toast.info('Сперва войдите в аккаунт')}}>
+                <BsFillChatDotsFill className='my-1 mr-1' />
+                  Чат
+                </div>)
+                : isAuth && (currentUser._id === ownerTaskUser._id) ? (<div></div>):(<div></div>)}
+              
+              
+                        
+                {/* {isShown && (
+                    <div className='text-m font-bold text-center'>
+                    {ownerTaskUser.phonenumber}
+                    </div>
+                        )} */}
+                
+                
+                {/* {isAuth && (
+                     currentUser._id !== ownerTaskUser._id && (
+                    <button onClick={handleCreateChat} className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите заказчику</button>)
+               
+               )} */}
+                {/* <button onClick={handleCreateChat} className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите исполнителю</button>
+                 */}
+                 {/* {!isAuth && (
+                 <a href='/login' className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите заказчику</a>
+               )} */}
+               </div>
+               {((currentUser?._id === ownerTaskUser._id) || (currentUser?.admin===true)) ?  (
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     <div className='flex flex-row justify-between'>
                         <button className='flex items-center justify-center gap-2 text-xs text-black opacity-50'>
                             <AiFillEye /> <span>{task.views}</span>
                         </button>
+<<<<<<< HEAD
                         {((currentUser?._id === ownerTaskUser._id) || (currentUser?.admin===true)) &&  (
+=======
+                        
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             <div className='flex flex-row gap-3 justify-end'>
                                 <div className='flex'>
                                 <button className='flex items-center justify-center gap-2 text-black opacity-80'>
@@ -325,14 +427,33 @@ export const TaskPage = () => {
                                 </div>
                                 
                             </div>
+<<<<<<< HEAD
                         )}
                         
                     </div>
+=======
+                       
+                        
+                    </div>
+                     ):
+                     (<div className='flex justify-center'>
+                     {/* <button className='flex items-center justify-center gap-2 text-xs text-black opacity-50'>
+                         <AiFillEye /> <span>{task.views}</span>
+                     </button> */}
+                     
+                     
+                     </div>)
+                     }
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
                     
         
 
                 </div>
+<<<<<<< HEAD
+=======
+                 
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 
             </div>
 

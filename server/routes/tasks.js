@@ -3,6 +3,10 @@ import {
     createTask,
     getAll,
     getById,
+<<<<<<< HEAD
+=======
+    getMyTasks,
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     removeTask,
     updateTask
    
@@ -18,6 +22,13 @@ router.post('/', checkAuth, createTask)
 // http://localhost:3002/api/tasks
 router.get('/', getAll)
 
+<<<<<<< HEAD
+=======
+// Get My Tasks
+// http://localhost:3002/api/tasks/user/me
+router.get('/user/me', checkAuth, getMyTasks)
+
+>>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 // Get Task By Id
 // http://localhost:3002/api/tasks/:id
 router.get('/:id', getById)
