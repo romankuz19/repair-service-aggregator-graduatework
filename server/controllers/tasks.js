@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import Service from '../models/Service.js'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 import Task from '../models/Task.js'
 import User from '../models/User.js'
 
@@ -65,8 +62,6 @@ export const getById = async (req, res) => {
     }
 }
 
-<<<<<<< HEAD
-=======
 export const getMyTasks = async (req, res) => {
     try {
 
@@ -87,7 +82,6 @@ export const getMyTasks = async (req, res) => {
     }
 }
 
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 // Remove post
 export const removeTask = async (req, res) => {
     try {

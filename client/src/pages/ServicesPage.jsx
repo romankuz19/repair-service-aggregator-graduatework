@@ -1,21 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-<<<<<<< HEAD
-import { PopularPosts } from '../components/PopularPosts'
-import { CategoryItem } from '../components/CategoryItem.jsx'
-import { PostItem } from '../components/PostItem'
-
-import { getAllPosts } from '../redux/features/post/postSlice'
-import axios from '../utils/axios'
-//import { Button } from 'react-bootstrap';
-
-export const ServicesPage = () => {
-    const dispatch = useDispatch()
-    const { posts, popularPosts, users } = useSelector((state) => state.post)
-    const [cat, setCat] = useState('')
-    const [sortedPosts, setSortedPosts]= useState([])
-=======
 import { useSearchParams } from 'react-router-dom';
 import { PopularPosts } from '../components/PopularPosts'
 import { CategoryItem } from '../components/CategoryItem.jsx'
@@ -59,7 +44,6 @@ const categoriesList = [
     );
     const [checkedStateAll, setCheckedStateAll] = useState(true);
     const [sortCategories, setSortCategories]= useState([])
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     
 
     //console.log(popularPosts)
@@ -70,11 +54,8 @@ const categoriesList = [
     }, [dispatch])
 
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     const handleSort = async () => {
         try {
             //var select = document.getElementById('catlist');
@@ -87,11 +68,7 @@ const categoriesList = [
                 console.log('cat',cat)
             const data = await axios.get(`/posts/sorted/${cat}`);
             console.log('data',data)
-<<<<<<< HEAD
-            if(data.data.sortedPosts.length==0){
-=======
             if(data.data.sortedServices.length==0){
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 alert('Неверное значение сортировки, выберите из списка')
                 setCat('')
                 let element = document.getElementById('catlist');
@@ -99,17 +76,10 @@ const categoriesList = [
                 
             }
             else{
-<<<<<<< HEAD
-                setSortedPosts(data.data.sortedPosts)
-            }
-           // const { data } = await axios.get('/posts')
-            console.log('sortedPosts',data.data.sortedPosts)
-=======
                 setSortedServices(data.data.sortedServices)
             }
            // const { data } = await axios.get('/posts')
             console.log('sortedServices',data.data.sortedServices)
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             
             }
             //return data
@@ -118,17 +88,11 @@ const categoriesList = [
         }
     }
 
-<<<<<<< HEAD
-    const cancelSort = async () => {
-        try {
-            setSortedPosts([])
-=======
 
 
     const cancelSort = async () => {
         try {
             setSortedServices([])
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             setCat('')
             let element = document.getElementById('catlist');
             element.value = '';
@@ -143,8 +107,6 @@ const categoriesList = [
         }
     }
 
-<<<<<<< HEAD
-=======
 
     const handleSearch = async(e) => {
         try {
@@ -209,7 +171,6 @@ const categoriesList = [
         fetchSort()
     }, [])
 
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     if (!posts.length) {
         return (
             <div className='text-xl text-center text-white py-10'>
@@ -217,23 +178,7 @@ const categoriesList = [
             </div>
         )
     }
-<<<<<<< HEAD
-    const categoriesList = [
-       
-        {
-            id: 1,
-            value: 'Бытовые услуги'
-        }, {
-            id: 2,
-            value: 'Электроника'
-        }, {
-            id: 3,
-            value: 'Машины'
-        }
-        ];
-=======
     
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
         
         function Options({ options }) {
             return (
@@ -244,11 +189,7 @@ const categoriesList = [
                            );
         }
     //console.log('qqq',cat)
-<<<<<<< HEAD
-    //console.log('length',sortedPosts.length)
-=======
     //console.log('length',sortedServices.length)
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
 
     // const intNum=[-1,2,-3,4,-5,6,-7,0,-8];
@@ -263,8 +204,6 @@ const categoriesList = [
     // }
     // console.log('result',sign(intNum))
     
-<<<<<<< HEAD
-=======
     
 
     const handleOnChangeSort = (position, value) => {
@@ -343,19 +282,13 @@ const categoriesList = [
     console.log('sortCat',sortCategories);
 
     
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     return (
         
         <>
         
-<<<<<<< HEAD
-        <div className='max-w-[950px] mx-auto py-10'>
-                <div className='mx-auto mb-10 flex flex-col items-center justify-center'>
-=======
         
         <div className='max-w-[950px] mx-auto py-10'>
                 {/* <div className='mx-auto mb-10 flex flex-col items-center justify-center'>
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     <div className='flex flex-col items-center'>
                         <p className=' text-blue-700 text-xl font-bold'>Сортировка по категориям</p>
                         <input list="categories" id="catlist" 
@@ -379,9 +312,6 @@ const categoriesList = [
                         >Сбросить</button>
                     </div>
 
-<<<<<<< HEAD
-                </div>
-=======
                 </div> */}
                 
             <form className='mb-10' action="#">   
@@ -400,21 +330,11 @@ const categoriesList = [
                 </div>
             </form>
 
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
                 
                 <div className='flex justify-center gap-4'>
 
                     <div className='flex flex-col gap-10 basis-4/5'>
-<<<<<<< HEAD
-                        {sortedPosts.length === 0 ?
-                            posts?.map((post, idx) => (
-                                <PostItem key={idx} post={post} user={users} />
-                            )) :
-
-                            sortedPosts?.map((post, idx) => (
-                                <PostItem key={idx} post={post} user={users} />
-=======
                         {sortedServices.length === 0 ?
                             posts?.map((service, idx) => (
                                 <ServiceItem key={idx} service={service} user={users} />
@@ -422,22 +342,12 @@ const categoriesList = [
 
                             sortedServices?.map((service, idx) => (
                                 <ServiceItem key={idx} service={service} user={users} />
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             ))}
                         {/* {posts?.map((post, idx) => (
         <PostItem key={idx} post={post} user={users} />
     ))} */}
                     </div>
                     <div className='basis-1/5'>
-<<<<<<< HEAD
-                        <div className='text-xs text-center font-bold uppercase text-black'>
-                            Популярное:
-                        </div>
-
-                        {popularPosts?.map((post, idx) => (
-                            <PopularPosts key={idx} post={post} />
-                        ))}
-=======
                         <div className=' font-bold  text-black'>
                         <div className="toppings-list-item">
                                         <div className="left-section">
@@ -486,7 +396,6 @@ const categoriesList = [
                         <button className='btn-color text-white font-bold rounded-lg text-sm px-2 py-2' onClick={handleCategoriesSort}>Применить</button>
                         <button className='btn-color text-white font-bold rounded-lg text-sm px-3 py-2 ml-5' onClick={cancelCategoriesSort}>Х</button>
                         
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     </div>
                 </div>
             </div></>

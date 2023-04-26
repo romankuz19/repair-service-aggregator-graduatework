@@ -8,10 +8,7 @@ export const LoginPage = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [btn, setBtn] = useState(false);
-<<<<<<< HEAD
-=======
     
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
     const {  status } = useSelector((state) => state.auth)
     console.log('status',status)
@@ -28,22 +25,14 @@ export const LoginPage = () => {
         if (isAuth) {
         navigate('/') 
         goodAuth="Успешный вход"
-<<<<<<< HEAD
-        toast(goodAuth)
-=======
         toast.info(goodAuth)
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
         //window.location.reload(false);
     }
     else{
         if(btn){
             badAuth="Неверный логин или пароль"
-<<<<<<< HEAD
-            toast(badAuth)
-=======
             toast.info(badAuth)
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             //console.log('qqqqq')
         }
     }

@@ -2,14 +2,10 @@ import React from 'react'
 import { AiFillEye, AiOutlineMessage } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import Moment from 'react-moment'
-<<<<<<< HEAD
-import { Link } from 'react-router-dom'
-=======
 import { Link, useNavigate } from 'react-router-dom'
 import {  HiPhone } from 'react-icons/hi'
 
 import { BsFillChatDotsFill} from 'react-icons/bs'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 import { useEffect } from 'react'
 import { useState,useCallback } from 'react'
 import axios from '../utils/axios'
@@ -17,11 +13,8 @@ import axios from '../utils/axios'
 export const TaskItem = ({ task, user }) => {
 
     const [isShown, setIsShown] = useState(false);
-<<<<<<< HEAD
-=======
     const [phone, setPhone] = useState('Телефон')
     const navigate = useNavigate()
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     //console.log('firstname:',firstname)
     console.log('users',user)
     console.log('task',task)
@@ -72,13 +65,8 @@ export const TaskItem = ({ task, user }) => {
     }
     return (
         <Link to={`/task/${task._id}`}>
-<<<<<<< HEAD
-            <div className='flex justify-around gap-4 border-2 border-pink-200 rounded-lg p-2'>
-                <div className='flex leftcard flex-col gap-2'>
-=======
             {/* <div className='flex justify-around border-2 shadow-lg rounded-lg p-2'>
                 <div className='flex min-w-[250px] leftcard flex-col gap-2'>
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     <div className='text-2xl text-blue-600 font-bold opacity-100'>{task.title}</div>
                     <div className='text-m text-blue-600  opacity-100'>
                        {task.address}
@@ -87,33 +75,6 @@ export const TaskItem = ({ task, user }) => {
                        {task.category}
                     </div>
                     <div>до {task.date}</div>
-<<<<<<< HEAD
-                    <div className='flex-none'>
-                
-                        <button className='flex items-center justify-center gap-2 text-xs text-black opacity-50'>
-                            <AiFillEye /> <span>{task.views}</span>
-                        </button>
-                        
-                    </div>
-
-
-                </div>
-                
-            <div className='rightcard flex flex-col gap-2 justify-center'>
-
-                <div className='text-2xl text-blue-600 font-bold opacity-100'>{task.price} ₽</div>
-                <div className='text-black font-bold text-m'>{user.length>1?firstname:user.firstname} {user.length>1?secondname:user.secondname}</div>
-                
-        <button className='text-m font-bold rounded-lg bg-pink-100 p-1'
-        onMouseEnter={() => setIsShown(true)}>
-        Телефон
-      </button>
-      {isShown && (
-        <div className='text-m font-bold'>
-          {user.length>1?phonenumber:user.phonenumber}
-        </div>
-      )}
-=======
 
                 </div>
                 
@@ -145,15 +106,12 @@ export const TaskItem = ({ task, user }) => {
                 </button>
                 
             </div> */}
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
         
                 {/* <div className='flex justify-between items-center '>
                 <div className='text-blue-500 opacity-90 text-xl  line-clamp-4'>{task.text}</div>
                 <div className='text-blue-500 opacity-90 text-xl  line-clamp-4'>{task.price} ₽</div>
                      
                 </div> */}
-<<<<<<< HEAD
-=======
                 {/* </div>
             </div> */}
 
@@ -213,7 +171,6 @@ export const TaskItem = ({ task, user }) => {
                 
                 
                 
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 </div>
             </div>
         </Link>

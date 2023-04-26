@@ -5,11 +5,7 @@ import cors from 'cors'
 import fileUpload from 'express-fileupload'
 
 import authRoute from './routes/auth.js'
-<<<<<<< HEAD
-import postRoute from './routes/posts.js'
-=======
 import postRoute from './routes/services.js'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 import taskRoute from './routes/tasks.js'
 import commentRoute from './routes/comments.js'
 import chatRoute from './routes/chat.js'

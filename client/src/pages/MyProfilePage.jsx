@@ -109,15 +109,9 @@ export const MyProfilePage = () => {
 
                     <li>
                         <NavLink
-<<<<<<< HEAD
-                            to={'/myservices'}
-                            href='/'
-                            className='text-l font-bold text-black-400  hover:text-white rounded-lg bg-pink-200 px-4 py-2'
-=======
                             to={'/my-services'}
                             href='/'
                             className='text-l font-bold text-black-400  hover:text-white rounded-lg btn-color text-white hover:bg-blue-800  px-4 py-2'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             style={({ isActive }) => isActive ? activeStyles : undefined}
                         >
                             Мои услуги
@@ -125,11 +119,6 @@ export const MyProfilePage = () => {
                     </li>
                     <li>
                         <NavLink
-<<<<<<< HEAD
-                            to={'/createservice'}
-                            href='/'
-                            className='text-l font-bold text-black-400 hover:text-white rounded-lg bg-pink-200 px-4 py-2'
-=======
                             to={'/my-tasks'}
                             href='/'
                             className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2'
@@ -143,7 +132,6 @@ export const MyProfilePage = () => {
                             to={'/create-service'}
                             href='/'
                             className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             style={({ isActive }) => isActive ? activeStyles : undefined}
                         >
                             Добавить услугу
@@ -151,45 +139,21 @@ export const MyProfilePage = () => {
                     </li>
                     <li>
                         <NavLink
-<<<<<<< HEAD
-                            to={'/createtask'}
-                            href='/'
-                            className='text-l font-bold text-black-400 hover:text-white rounded-lg bg-pink-200 px-4 py-2'
-=======
                             to={'/create-task'}
                             href='/'
                             className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             style={({ isActive }) => isActive ? activeStyles : undefined}
                         >
                             Создать задание
                         </NavLink>
                     </li>
-<<<<<<< HEAD
-                    <li>
-                        <NavLink
-                            to={'/mytasks'}
-                            href='/'
-                            className='text-l font-bold text-black-400 hover:text-white rounded-lg bg-pink-200 px-4 py-2'
-                            style={({ isActive }) => isActive ? activeStyles : undefined}
-                        >
-                             Мои задания
-                        </NavLink>
-                    </li>
-                    <li>
-=======
                     
                     {/* <li>
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                         <NavLink
                             to={'#'}
                             href='/'
                             onClick={getChats}
-<<<<<<< HEAD
-                            className='text-l font-bold text-black-400 hover:text-white rounded-lg bg-pink-200 px-4 py-2 hover:text-black'
-=======
                             className='text-l font-bold  rounded-lg btn-color text-white hover:bg-blue-800 px-4 py-2 hover:text-black'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             
                         >
                             Мои чаты
@@ -268,22 +232,14 @@ export const MyProfilePage = () => {
                 <button
                     type='submit'
                     onClick={handleSubmit}
-<<<<<<< HEAD
-                    className='flex justify-center items-center bg-blue-600 text-l text-white rounded-lg py-2 px-4 hover:text-black'
-=======
                     className='flex justify-center items-center btn-color text-l text-white rounded-lg py-2 px-4 hover:bg-blue-800 font-bold'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 >
                     Изменить
                 </button>
                 <button
                     type='submit'
                     onClick={fetchUser}
-<<<<<<< HEAD
-                    className='flex justify-center items-center bg-red-500 text-l text-white rounded-lg py-2 px-4 hover:text-black'
-=======
                     className='flex justify-center items-center bg-red-500 text-l text-white rounded-lg py-2 px-4 hover:text-black font-bold'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 >
                     Отменить
                 </button>

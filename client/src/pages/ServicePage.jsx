@@ -42,22 +42,10 @@ export const ServicePage = () => {
     const words = [ 'сука' , 'сучка' , 'шлюха' ]
     
     const mat = /(?<=^|[^а-я])(([уyu]|[нзnz3][аa]|(хитро|не)?[вvwb][зz3]?[ыьъi]|[сsc][ьъ']|(и|[рpr][аa4])[зсzs]ъ?|([оo0][тбtb6]|[пp][оo0][дd9])[ьъ']?|(.\B)+?[оаеиeo])?-?([еёe][бb6](?!о[рй])|и[пб][ае][тц]).*?|([нn][иеаaie]|([дпdp]|[вv][еe3][рpr][тt])[оo0]|[рpr][аa][зсzc3]|[з3z]?[аa]|с(ме)?|[оo0]([тt]|дно)?|апч)?-?[хxh][уuy]([яйиеёюuie]|ли(?!ган)).*?|([вvw][зы3z]|(три|два|четыре)жды|(н|[сc][уuy][кk])[аa])?-?[бb6][лl]([яy](?!(х|ш[кн]|мб)[ауеыио]).*?|[еэe][дтdt][ь']?)|([рp][аa][сзc3z]|[знzn][аa]|[соsc]|[вv][ыi]?|[пp]([еe][рpr][еe]|[рrp][оиioеe]|[оo0][дd])|и[зс]ъ?|[аоao][тt])?[пpn][иеёieu][зz3][дd9].*?|([зz3][аa])?[пp][иеieu][дd][аоеaoe]?[рrp](ну.*?|[оаoa][мm]|([аa][сcs])?([иiu]([лl][иiu])?[нщктлtlsn]ь?)?|([оo](ч[еиei])?|[аa][сcs])?[кk]([оo]й)?|[юu][гg])[ауеыauyei]?|[мm][аa][нnh][дd]([ауеыayueiи]([лl]([иi][сзc3щ])?[ауеыauyei])?|[оo][йi]|[аоao][вvwb][оo](ш|sh)[ь']?([e]?[кk][ауеayue])?|юк(ов|[ауи])?)|[мm][уuy][дd6]([яyаиоaiuo0].*?|[еe]?[нhn]([ьюия'uiya]|ей))|мля([тд]ь)?|лять|([нз]а|по)х|м[ао]л[ао]фь([яию]|[её]й))(?=($|[^а-я]))/
-<<<<<<< HEAD
-    
-    const blockurl = /^(https?:\/\/)?([\w-]{1,32}\.[\w-]{1,32}) [^\s@]*$/
-
-    const blockurl1 = /^https?:\/\/(\w+:?\w*@)?(\S+(?::\S*))(:[0-9]+)?(\/|\/([\w#!:.?+=&%@\-/]))?/
-
-    const blockurl2 = /^(http|https|ftp|)\/|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/
-    
-    // /?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$/
-    
-=======
 
 
     const blockurl2 = /^(http|https|ftp|)\/|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/
 
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     var chatId = ''
     var loading = true
  
@@ -74,13 +62,8 @@ export const ServicePage = () => {
         try {
             console.log('params',params)
             dispatch(removePost(params.id))
-<<<<<<< HEAD
-            toast('Услуга была удалена')
-            //navigate('/')
-=======
             toast.info('Услуга была удалена')
             navigate('/')
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             window.location.reload(false);
         } catch (error) {
             console.log(error)
@@ -130,11 +113,7 @@ export const ServicePage = () => {
         try {
             setBtn(true)
             console.log('user1',currentUser._id)
-<<<<<<< HEAD
-            console.log('user2',ownerUser[0]._id)
-=======
             console.log('user2',ownerUser._id)
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             
             const { data } = await axios.post(`/chat/create`, {
                 firstUserId: currentUser._id,
@@ -276,23 +255,11 @@ export const ServicePage = () => {
             
             }
             if(firstCheck && secondCheck && adcheck){
-<<<<<<< HEAD
-=======
                 console.log('cmt',comment)
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 setComment('')
                 dispatch(createComment({ postId, comment, author }))
             }
             else if(!firstCheck || !secondCheck){
-<<<<<<< HEAD
-                alert("Данный контент нельзя вставить!")
-                toast("Данный контент нельзя вставить!")
-                    setComment('')
-            }
-            else if(!adcheck){
-                alert("Данный контент нельзя вставить!")
-                toast("Данный контент нельзя вставить!")
-=======
                 //alert("Данный контент нельзя вставить!")
                 toast.info("Данный контент нельзя вставить!")
                     setComment('')
@@ -300,7 +267,6 @@ export const ServicePage = () => {
             else if(!adcheck){
                 //alert("Данный контент нельзя вставить!")
                 toast.info("Данный контент нельзя вставить!")
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     setComment('')
             }
             
@@ -448,39 +414,6 @@ export const ServicePage = () => {
 
                
 
-<<<<<<< HEAD
-                        {((currentUser?._id === post.author) || (currentUser?.admin===true)) &&  (
-                            <div className='flex gap-3'>
-                                <button className='flex items-center justify-center gap-2 text-black opacity-80'>
-                                    <Link to={`/service/${params.id}/edit`}>
-                                        <AiTwotoneEdit />
-                                    </Link>
-                                </button>
-                                <button
-                                    onClick={removePostHandler}
-                                    className='flex items-center justify-center gap-2  text-black opacity-80'
-                                >
-                                    <AiFillDelete />
-                                </button>
-                            </div>
-                        )}
-                        {/* {(currentUser?.admin===true) &&   (
-                            <div className='flex gap-3'>
-                                <button className='flex items-center justify-center gap-2 text-black opacity-80'>
-                                    <Link to={`/service/${params.id}/edit`}>
-                                        <AiTwotoneEdit />
-                                    </Link>
-                                </button>
-                                <button
-                                    onClick={removePostHandler}
-                                    className='flex items-center justify-center gap-2  text-black opacity-80'
-                                >
-                                    <AiFillDelete />
-                                </button>
-                            </div>
-                        )} */}
-                    </div>
-=======
     
                 </div>
                 
@@ -488,17 +421,12 @@ export const ServicePage = () => {
                     
 
                     
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 </div>
 
 
                 {chat && (
                             <div className='w-1/3 ml-5'>
-<<<<<<< HEAD
-                            <div className='max-h-[400px] text-white overflow-auto p-2 bg-blue-700 flex flex-col gap-2 rounded-lg'>
-=======
                             <div className='max-h-[400px] text-white overflow-auto p-2 bg-blue-700 flex flex-col gap-2 rounded-lg '>
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                                 {allMessages?.length!==0?
                                 allMessages?.map((msg) => (
                              <MessageItem key={msg._id} msg={msg} />

@@ -9,11 +9,8 @@ import {
     AiTwotoneEdit,
     AiFillDelete,
 } from 'react-icons/ai'
-<<<<<<< HEAD
-=======
 import {  HiPhone } from 'react-icons/hi'
 import { BsFillChatDotsFill} from 'react-icons/bs'
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 import Moment from 'react-moment'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -33,10 +30,7 @@ export const TaskPage = () => {
     const [task, setTask] = useState(null)
     const [ownerTaskUser, setownerTaskUser] = useState(null)
     const [chat, setChat] = useState(null)
-<<<<<<< HEAD
-=======
     const [phone, setPhone] = useState('Телефон')
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
     const [comment, setComment] = useState('')
     const [message, setMessage] = useState('')
@@ -105,10 +99,7 @@ export const TaskPage = () => {
         firstUserId,
         secondUserId,
     })
-<<<<<<< HEAD
-=======
     navigate('/chats')
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     //console.log('data',data);
     //dispatch(createChat({firstUserId, secondUserId}));
     setChat(data);
@@ -142,11 +133,7 @@ export const TaskPage = () => {
         try {
             console.log('params',params)
             dispatch(removeTask(params.id))
-<<<<<<< HEAD
-            toast('Задание было удалено')
-=======
             toast.info('Задание было удалено')
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
             navigate('/tasks')
             //window.location.reload(false);
         } catch (error) {
@@ -204,10 +191,6 @@ export const TaskPage = () => {
       });
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
     
     //console.log('messages',messages)
    //console.log('a',chat)
@@ -265,20 +248,6 @@ export const TaskPage = () => {
 
     return (
         <div className='max-w-[1200px] mx-auto py-10'>
-<<<<<<< HEAD
-            <button className='bg-blue-600 text-xs text-white rounded-lg py-2 px-4 hover:text-black'>
-                <Link className='flex' to={'/tasks'}>
-                    Назад
-                </Link>
-            </button>
-            <div className='mx-auto max-w-[900px] py-8'>
-            <div className='flex justify-around gap-4 border-2 border-pink-200 rounded-lg p-2'>
-                <div className='flex leftcard flex-col gap-2'>
-                    <div className='text-2xl text-blue-600 font-bold opacity-100'>Задача </div>
-                    <div className='text-m text-blue-600  opacity-100'>
-                       Адрес 
-                    </div>
-=======
             {/* <button className='bg-blue-600 text-xs text-white rounded-lg py-2 px-4 hover:text-black'>
                 <Link className='flex' to={'/tasks'}>
                     Назад
@@ -292,55 +261,10 @@ export const TaskPage = () => {
                        Адрес 
                     </div>
                    
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     <div className='text-m font-bold'>
                       Заказчик 
                     </div>
 
-<<<<<<< HEAD
-                    <div className='text-m text-blue-600  opacity-100'>
-                    Категория 
-                    </div>
-                    
-                    
-
-
-                </div>
-                
-            <div className='midcard flex flex-col gap-2 justify-center'>
-
-                <div className='text-2xl text-blue-600 font-bold opacity-100'>{task.title}</div>
-                <div className='text-m text-blue-600  opacity-100'>{task.address}</div>
-                <div className='text-m font-bold'>{ownerTaskUser.firstname} {ownerTaskUser.secondname}</div>
-                <div className='text-m text-blue-600  opacity-100'>
-                    {task.category}
-                    </div>
-                </div>
-
-                <div className='rightcard flex flex-col gap-2 justify-center'>
-                <div className='text-2xl text-blue-600 font-bold opacity-100'>Оплата: {task.price} ₽</div>
-                <button className='text-m font-bold rounded-lg bg-pink-100 p-1'
-                    onMouseEnter={() => setIsShown(true)}>
-                    Телефон
-                </button>
-                {isShown && (
-                    <div className='text-m font-bold text-center'>
-                    {ownerTaskUser.phonenumber}
-                    </div>
-                        )}
-                
-                
-                {isAuth && (
-                     currentUser._id !== ownerTaskUser._id && (
-                    <button onClick={handleCreateChat} className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите заказчику</button>)
-               
-               )}
-                {/* <button onClick={handleCreateChat} className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите исполнителю</button>
-                 */}
-                 {!isAuth && (
-                 <a href='/login' className='bg-blue-400 text-xs text-white rounded-lg py-1 px-1 hover:text-black'>Напишите заказчику</a>
-               )}
-=======
                     {/* <div className='text-m text-blue-600  opacity-100'>
                     Категория 
                     </div> */}
@@ -399,16 +323,11 @@ export const TaskPage = () => {
                )} */}
                </div>
                {((currentUser?._id === ownerTaskUser._id) || (currentUser?.admin===true)) ?  (
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                     <div className='flex flex-row justify-between'>
                         <button className='flex items-center justify-center gap-2 text-xs text-black opacity-50'>
                             <AiFillEye /> <span>{task.views}</span>
                         </button>
-<<<<<<< HEAD
-                        {((currentUser?._id === ownerTaskUser._id) || (currentUser?.admin===true)) &&  (
-=======
                         
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                             <div className='flex flex-row gap-3 justify-end'>
                                 <div className='flex'>
                                 <button className='flex items-center justify-center gap-2 text-black opacity-80'>
@@ -427,11 +346,6 @@ export const TaskPage = () => {
                                 </div>
                                 
                             </div>
-<<<<<<< HEAD
-                        )}
-                        
-                    </div>
-=======
                        
                         
                     </div>
@@ -444,16 +358,12 @@ export const TaskPage = () => {
                      
                      </div>)
                      }
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
 
                     
         
 
                 </div>
-<<<<<<< HEAD
-=======
                  
->>>>>>> fef589c922658da1cc3428d786d41331edaa590b
                 
             </div>
 
