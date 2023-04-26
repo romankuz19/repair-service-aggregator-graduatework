@@ -83,7 +83,7 @@ export const Chat = ({ chat, curuser, chatUsers }) => {
                 secondId=filtered[i]._id
                 break
             }
-        }git 
+        }
         if(filtered[i]._id===chat.secondUserId){
             second=filtered[i].firstname
             secondId=filtered[i]._id
